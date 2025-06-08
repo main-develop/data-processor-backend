@@ -1,2 +1,7 @@
 fastapi[standard]==0.115.12
 python-multipart==0.0.20
+bokeh==3.7.3
+dask==2025.5.1
+distributed==2025.5.1
+pyarrow==20.0.0
+pyparsing==3.2.3
