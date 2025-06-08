@@ -1,9 +1,8 @@
 from enum import Enum
-
-from pydantic import BaseModel, ConfigDict
 from typing import Literal
 
 from fastapi import Form, UploadFile
+from pydantic import BaseModel, ConfigDict
 
 
 class ProcessingType(str, Enum):

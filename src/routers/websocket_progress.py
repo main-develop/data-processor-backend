@@ -1,7 +1,9 @@
-from fastapi import WebSocket, APIRouter
+from fastapi import APIRouter, WebSocket
+
 from ..websocket_manager import active_websockets
 
 websocket_router = APIRouter()
+
 
 @websocket_router.websocket("/ws/progress/{session_id}")
 async def websocket_progress(websocket: WebSocket, session_id: str):
@@ -9,7 +11,7 @@ async def websocket_progress(websocket: WebSocket, session_id: str):
     if session_id not in active_websockets:
         active_websockets[session_id] = []
     active_websockets[session_id].append(websocket)
-    
+
     try:
         while True:
             await websocket.receive_text()  # Keep connection alive
